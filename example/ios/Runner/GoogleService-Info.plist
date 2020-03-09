@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>710924914694-eod3a59fruif4m2l4hb4of1mp533aq2t.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.710924914694-eod3a59fruif4m2l4hb4of1mp533aq2t</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>710924914694-27eapfa8vosv6b1i7ujvn6he7mfugtja.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBBTb6RyQHU_aSE8HNA_mmBG_uaiBwHtyc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>710924914694</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jp.co.iyobank.minefocus.dev</string>
+	<key>PROJECT_ID</key>
+	<string>minefocus-scsk</string>
+	<key>STORAGE_BUCKET</key>
+	<string>minefocus-scsk.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:710924914694:ios:0c7ef8160a81625c</string>
+	<key>DATABASE_URL</key>
+	<string>https://minefocus-scsk.firebaseio.com</string>
+</dict>
+</plist>
