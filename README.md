@@ -51,27 +51,27 @@ import 'package:minefocus_sns_login_flutter/minefocus_sns_login_flutter.dart';
 ```Dart
 /// google连携
 final snsLogin = MFSnsLogin();
-snsLogin.login(SnsLoginType.google).then((value) {
-if (value.success) {
-   print('google token is ------${value.accessToken}');
+snsLogin.login(SnsLoginType.google).then((result) {
+if (result.isSuccess) {
+   print('google token is ------${result.accessToken}');
 } else {
    print('google login error');
 }
   
 /// facebook连携
 final snsLogin = MFSnsLogin();
-snsLogin.login(SnsLoginType.facebook).then((value) {
-if (value.success) {
-   print('facebook token is ------${value.accessToken}');
+snsLogin.login(SnsLoginType.facebook).then((result) {
+if (result.isSuccess) {
+   print('facebook token is ------${result.accessToken}');
 } else {
    print('facebook login error');
 }
   
 // yahoo 联携需要传key
 final snsLogin = MFSnsLogin(yahooKey: "yj-e4kn");
-snsLogin.login(SnsLoginType.yahoo).then((value) {
-if (value.success) {
-   print('yahoo token is ------${value.accessToken}');
+snsLogin.login(SnsLoginType.yahoo).then((result) {
+if (result.isSuccess) {
+   print('yahoo token is ------${result.accessToken}');
 } else {
    print('yahoo login error');
 }

@@ -7,10 +7,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 enum SnsLoginType { google, facebook, yahoo }
 
 class SnsLoginResult {
-  bool success;
+  bool isSuccess;
   String accessToken;
 
-  SnsLoginResult(this.success, {this.accessToken});
+  SnsLoginResult(this.isSuccess, {this.accessToken});
 }
 
 class MFSnsLogin {
@@ -30,7 +30,7 @@ class MFSnsLogin {
   Future<SnsLoginResult> login(SnsLoginType type) async {
     switch (type) {
       case SnsLoginType.google:
-        // google 联携
+        // google连携
         try {
           GoogleSignIn googleSignIn = GoogleSignIn(
             scopes: [
@@ -46,7 +46,7 @@ class MFSnsLogin {
         }
         break;
       case SnsLoginType.facebook:
-        // facebook 联携
+        // facebook连携
         final facebookLogin = FacebookLogin();
         final result = await facebookLogin.logIn(['email']);
         if (result.status == FacebookLoginStatus.loggedIn) {
@@ -56,7 +56,7 @@ class MFSnsLogin {
         }
         break;
       case SnsLoginType.yahoo:
-        // yahoo 联携
+        // yahoo连携
         final Map<dynamic, dynamic> result = await _channel.invokeMethod('yahooLogIn', {
           'yahooKey': yahooKey,
         });

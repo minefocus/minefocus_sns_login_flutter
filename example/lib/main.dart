@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () async {
                   final snsLogin = MFSnsLogin();
                   snsLogin.login(SnsLoginType.google).then((value) {
-                    if (value.success) {
+                    if (value.isSuccess) {
                       print('google token is ------${value.accessToken}');
                     } else {
                       print('google login error');
@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () async {
                   final snsLogin = MFSnsLogin();
                   snsLogin.login(SnsLoginType.facebook).then((value) {
-                    if (value.success) {
+                    if (value.isSuccess) {
                       print('facebook token is ------${value.accessToken}');
                     } else {
                       print('facebook login error');
@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
                   // yahoo 联携需要传key
                   final snsLogin = MFSnsLogin(yahooKey: "yj-e4kn");
                   snsLogin.login(SnsLoginType.yahoo).then((value) {
-                    if (value.success) {
+                    if (value.isSuccess) {
                       print('yahoo token is ------${value.accessToken}');
                     } else {
                       print('yahoo login error');
