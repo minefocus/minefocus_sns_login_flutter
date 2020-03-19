@@ -49,29 +49,32 @@ import 'package:minefocus_sns_login_flutter/minefocus_sns_login_flutter.dart';
 ## 使用例子
 
 ```Dart
-/// google连携
-MFSnsLogin.login(SnsLoginType.google).then((result) {
-if (result.isSuccess) {
-   print('google token is ------${result.accessToken}');
-} else {
-   print('google login error');
-}
+  /// google连携
+  MFSnsLogin.login(SnsLoginType.google).then((value) {
+    if (value.isSuccess) {
+      print('google token is ------${value.accessToken}');
+    } else {
+      print('google login error');
+    }
+  });
   
-/// facebook连携
-MFSnsLogin.login(SnsLoginType.facebook).then((result) {
-if (result.isSuccess) {
-   print('facebook token is ------${result.accessToken}');
-} else {
-   print('facebook login error');
-}
+  /// facebook连携
+  MFSnsLogin.login(SnsLoginType.facebook).then((value) {
+    if (value.isSuccess) {
+      print('facebook token is ------${value.accessToken}');
+    } else {
+      print('facebook login error');
+    }
+  });
 
-/// yahoo连携
-MFSnsLogin.login(SnsLoginType.yahoo).then((result) {
-if (result.isSuccess) {
-   print('yahoo token is ------${result.accessToken}');
-} else {
-   print('yahoo login error');
-}
+  /// yahoo连携
+  MFSnsLogin.login(SnsLoginType.yahoo).then((value) {
+    if (value.isSuccess) {
+      print('yahoo token is ------${value.accessToken}');
+    } else {
+      print('yahoo login error');
+    }
+  });
 ```
 
 
