@@ -44,12 +44,8 @@ public class SwiftMinefocusSnsLoginFlutterPlugin: NSObject, FlutterPlugin {
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
 
-    var yahooKey: String = "";
-
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         if (call.method == "yahooLogIn") {
-            let arguments = call.arguments as? Dictionary<String, String>
-            yahooKey = arguments?["yahooKey"] ?? ""
             AuthSDKHelper.share.yahooOpenURL(UIApplication.shared.keyWindow?.rootViewController)
             AuthSDKHelper.share.yahooAuthHandler = { value in
                 if let accessToken = value {
@@ -63,14 +59,20 @@ public class SwiftMinefocusSnsLoginFlutterPlugin: NSObject, FlutterPlugin {
 
     public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         if let scheme = url.scheme {
-            switch scheme {
-            case yahooKey:
+            if let yahooScheme = getYahooScheme(), yahooScheme == scheme {
                 AuthSDKHelper.share.yahooAuth(url: url)
-                break
-            default:
-                break
             }
         }
         return true
+    }
+
+    // 获取yahoo的Scheme
+    func getYahooScheme() -> String? {
+        if let yahooRedirectUri = Bundle.main.infoDictionary?["YConnectRedirectUri"] as? String {
+            if let yahooScheme = yahooRedirectUri.components(separatedBy: ":").first {
+                return yahooScheme
+            }
+        }
+        return nil
     }
 }

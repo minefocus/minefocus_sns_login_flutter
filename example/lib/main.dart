@@ -28,8 +28,7 @@ class _MyAppState extends State<MyApp> {
               RaisedButton(
                 child: Text("google login"),
                 onPressed: () async {
-                  final snsLogin = MFSnsLogin();
-                  snsLogin.login(SnsLoginType.google).then((value) {
+                  MFSnsLogin.login(SnsLoginType.google).then((value) {
                     if (value.isSuccess) {
                       print('google token is ------${value.accessToken}');
                     } else {
@@ -42,8 +41,7 @@ class _MyAppState extends State<MyApp> {
               RaisedButton(
                 child: Text("facebook login"),
                 onPressed: () async {
-                  final snsLogin = MFSnsLogin();
-                  snsLogin.login(SnsLoginType.facebook).then((value) {
+                  MFSnsLogin.login(SnsLoginType.facebook).then((value) {
                     if (value.isSuccess) {
                       print('facebook token is ------${value.accessToken}');
                     } else {
@@ -56,9 +54,7 @@ class _MyAppState extends State<MyApp> {
               RaisedButton(
                 child: Text("yahoo login"),
                 onPressed: () async {
-                  // yahoo 联携需要传key
-                  final snsLogin = MFSnsLogin(yahooKey: "yj-e4kn");
-                  snsLogin.login(SnsLoginType.yahoo).then((value) {
+                  MFSnsLogin.login(SnsLoginType.yahoo).then((value) {
                     if (value.isSuccess) {
                       print('yahoo token is ------${value.accessToken}');
                     } else {

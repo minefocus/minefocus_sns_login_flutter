@@ -21,13 +21,8 @@ class MFSnsLogin {
     return version;
   }
 
-  MFSnsLogin({this.yahooKey});
-
-  /// yahoo key 例子: yj-e4kn
-  final String yahooKey;
-
   // ignore: missing_return
-  Future<SnsLoginResult> login(SnsLoginType type) async {
+  static Future<SnsLoginResult> login(SnsLoginType type) async {
     switch (type) {
       case SnsLoginType.google:
         // google连携
@@ -57,9 +52,7 @@ class MFSnsLogin {
         break;
       case SnsLoginType.yahoo:
         // yahoo连携
-        final Map<dynamic, dynamic> result = await _channel.invokeMethod('yahooLogIn', {
-          'yahooKey': yahooKey,
-        });
+        final Map<dynamic, dynamic> result = await _channel.invokeMethod('yahooLogIn');
         if (result["success"] == true) {
           return SnsLoginResult(true, accessToken: result["yahooAccessToken"]);
         } else {
