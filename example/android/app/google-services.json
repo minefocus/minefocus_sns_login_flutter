@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "659059548715",
+    "firebase_url": "https://sns-example-50ddb.firebaseio.com",
+    "project_id": "sns-example-50ddb",
+    "storage_bucket": "sns-example-50ddb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659059548715:android:6f0f504f253db66928806e",
+        "android_client_info": {
+          "package_name": "com.scsk.minefocus_sns_login_flutter_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659059548715-fpot4ber4b4k4vd4n1fa39ek5k67mn2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scsk.minefocus_sns_login_flutter_example",
+            "certificate_hash": "0ee5872f861b323ba7756a923421aa1c8f585140"
+          }
+        },
+        {
+          "client_id": "659059548715-b052s0r69ph5sb8d8igoep5m0vpahve8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq4hBtWP-51PyBHPav69NFjGoQVWoK8Iw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659059548715-b052s0r69ph5sb8d8igoep5m0vpahve8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "659059548715-eo0ksmtcm9aniet3kcbjfvhm7r49ih5i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.snsExample"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
