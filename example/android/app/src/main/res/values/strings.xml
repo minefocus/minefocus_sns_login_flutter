@@ -4,4 +4,6 @@
     <string name="facebook_app_id">126585357997423</string>
     <string name="fb_login_protocol_scheme">fb126585357997423</string>
     <string name="yahoo_scheme">yj-594js</string>
+    <string name="yahoo_clientId">dj00aiZpPWF2YmJyQmNaeW5oWSZzPWNvbnN1bWVyc2VjcmV0Jng9NmE-</string>
+    <string name="yahoo_scheme_data">yj-594js://cb</string>
 </resources>

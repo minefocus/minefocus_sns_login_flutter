@@ -40,6 +40,14 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
+        <!-- yahoo连携配置 begin-->
+        <meta-data android:name="com.sns.yahoo_clientId"
+            android:value="@string/yahoo_clientId"/>
+
+        <meta-data android:name="com.sns.yahoo_scheme"
+            android:value="@string/yahoo_scheme_data"/>
+        <!-- yahoo连携配置 end-->
+
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
 
