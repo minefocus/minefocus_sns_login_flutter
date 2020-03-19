@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.util.Log
 import android.widget.Toast
 import jp.co.yahoo.yconnect.YConnectHybrid
@@ -22,6 +23,9 @@ class LoginUtils(private val putConnectData: ((ConnectDataServiceType, String?) 
     // 現在の類の対象
     private var mActivity: Context? = null
 
+    private val YAHOO_CLIENT_ID = "com.sns.yahoo_clientId"
+    private val YAHOO_SCHEME = "com.sns.yahoo_scheme"
+
     //Google
     //Yahoo
     var yconnect: YConnectHybrid? = null
@@ -33,8 +37,8 @@ class LoginUtils(private val putConnectData: ((ConnectDataServiceType, String?) 
     //最大認証経過時間
     val MAX_AGE = "3600"
 
-    var clientId = "dj00aiZpPWF2YmJyQmNaeW5oWSZzPWNvbnN1bWVyc2VjcmV0Jng9NmE-"
-    var customUriScheme = "yj-594js://cb"
+    var clientId = ""
+    var customUriScheme = ""
     val state = "44GC44GC54Sh5oOF"
     val nonce = "U0FNTCBpcyBEZWFkLg=="
 
@@ -43,6 +47,9 @@ class LoginUtils(private val putConnectData: ((ConnectDataServiceType, String?) 
      */
     fun yahooInit(act: Context) {
         mActivity = act
+        val data = act.packageManager.getApplicationInfo(act.packageName, PackageManager.GET_META_DATA)
+        clientId = data.metaData.get(YAHOO_CLIENT_ID) as String
+        customUriScheme = data.metaData.get(YAHOO_SCHEME) as String
         // YConnectインスタンス取得
         yconnect = YConnectHybrid.getInstance()
     }
