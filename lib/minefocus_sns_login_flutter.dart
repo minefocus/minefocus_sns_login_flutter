@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-enum SnsLoginType { google, facebook, yahoo }
+enum SnsLoginType { google, facebook, yahoo, apple }
 
 class SnsLoginResult {
   bool isSuccess;
@@ -55,6 +55,15 @@ class MFSnsLogin {
         final Map<dynamic, dynamic> result = await _channel.invokeMethod('yahooLogIn');
         if (result["success"] == true) {
           return SnsLoginResult(true, accessToken: result["yahooAccessToken"]);
+        } else {
+          return SnsLoginResult(false);
+        }
+        break;
+      case SnsLoginType.apple:
+        //apple连携(ios)
+        final Map<dynamic, dynamic> result = await _channel.invokeMethod('appleLogIn');
+        if (result["success"] == true) {
+          return SnsLoginResult(true, accessToken: result["appleAccessToken"]);
         } else {
           return SnsLoginResult(false);
         }

@@ -4,28 +4,16 @@
     <list default="true" id="6eae08f0-5f53-4d88-9a06-df15953563f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/ios/Podfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Podfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/ios/Classes/SwiftMinefocusSnsLoginFlutterPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/ios/Classes/SwiftMinefocusSnsLoginFlutterPlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/lib/minefocus_sns_login_flutter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/minefocus_sns_login_flutter/lib/minefocus_sns_login_flutter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftMinefocusSnsLoginFlutterPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftMinefocusSnsLoginFlutterPlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/minefocus_sns_login_flutter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/minefocus_sns_login_flutter.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +34,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
@@ -53,6 +43,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ios/Classes" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -77,21 +72,25 @@
     </todo-panel>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1307" height="206" key="GridCell.Tab.0.bottom" timestamp="1625554439784">
-      <screen x="0" y="25" width="2048" height="1072" />
+    <state width="1845" height="247" key="GridCell.Tab.0.bottom" timestamp="1625626025699">
+      <screen x="0" y="25" width="2048" height="1042" />
     </state>
+    <state width="1845" height="247" key="GridCell.Tab.0.bottom/0.25.2048.1042@0.25.2048.1042" timestamp="1625626025699" />
     <state width="1307" height="206" key="GridCell.Tab.0.bottom/0.25.2048.1072@0.25.2048.1072" timestamp="1625554439784" />
-    <state width="1307" height="206" key="GridCell.Tab.0.center" timestamp="1625554439784">
-      <screen x="0" y="25" width="2048" height="1072" />
+    <state width="1845" height="247" key="GridCell.Tab.0.center" timestamp="1625626025698">
+      <screen x="0" y="25" width="2048" height="1042" />
     </state>
+    <state width="1845" height="247" key="GridCell.Tab.0.center/0.25.2048.1042@0.25.2048.1042" timestamp="1625626025698" />
     <state width="1307" height="206" key="GridCell.Tab.0.center/0.25.2048.1072@0.25.2048.1072" timestamp="1625554439784" />
-    <state width="1307" height="206" key="GridCell.Tab.0.left" timestamp="1625554439784">
-      <screen x="0" y="25" width="2048" height="1072" />
+    <state width="1845" height="247" key="GridCell.Tab.0.left" timestamp="1625626025698">
+      <screen x="0" y="25" width="2048" height="1042" />
     </state>
+    <state width="1845" height="247" key="GridCell.Tab.0.left/0.25.2048.1042@0.25.2048.1042" timestamp="1625626025698" />
     <state width="1307" height="206" key="GridCell.Tab.0.left/0.25.2048.1072@0.25.2048.1072" timestamp="1625554439784" />
-    <state width="1307" height="206" key="GridCell.Tab.0.right" timestamp="1625554439784">
-      <screen x="0" y="25" width="2048" height="1072" />
+    <state width="1845" height="247" key="GridCell.Tab.0.right" timestamp="1625626025699">
+      <screen x="0" y="25" width="2048" height="1042" />
     </state>
+    <state width="1845" height="247" key="GridCell.Tab.0.right/0.25.2048.1042@0.25.2048.1042" timestamp="1625626025699" />
     <state width="1307" height="206" key="GridCell.Tab.0.right/0.25.2048.1072@0.25.2048.1072" timestamp="1625554439784" />
     <state x="415" y="192" key="SettingsEditor" timestamp="1625551377450">
       <screen x="0" y="25" width="2048" height="1072" />

@@ -1,11 +1,14 @@
 import Flutter
 import UIKit
 import MFYConnect
+import AuthenticationServices
 
-class AuthSDKHelper {
+class AuthSDKHelper: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
 
     // yahooAuth
     var yahooAuthHandler:((_ accessToken: String?) -> Void)?
+    // appleAuth
+    var appleAuthHandler:((_ accessToken: String?) -> Void)?
 
     private static let s_share = AuthSDKHelper()
     class var share: AuthSDKHelper {
@@ -34,6 +37,42 @@ class AuthSDKHelper {
             }
         }
     }
+
+    func handleAuthorizationAppleID() {
+        if #available(iOS 13.0, *) {
+            let appleIDProvider = ASAuthorizationAppleIDProvider()
+            let request = appleIDProvider.createRequest()
+            request.requestedScopes = [.fullName, .email]
+            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+            authorizationController.delegate = self
+            authorizationController.presentationContextProvider = self
+            authorizationController.performRequests()
+        }
+    }
+
+    @available(iOS 13.0, *)
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return UIApplication.shared.keyWindow!
+    }
+
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            if let token = appleIDCredential.identityToken, let tokenString = String(bytes: token, encoding: .utf8){
+                self.appleAuthHandler?(tokenString)
+            } else {
+                self.appleAuthHandler?(nil)
+            }
+        default:
+            break
+        }
+    }
+
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        self.appleAuthHandler?(nil)
+    }
 }
 
 public class SwiftMinefocusSnsLoginFlutterPlugin: NSObject, FlutterPlugin {
@@ -50,6 +89,16 @@ public class SwiftMinefocusSnsLoginFlutterPlugin: NSObject, FlutterPlugin {
             AuthSDKHelper.share.yahooAuthHandler = { value in
                 if let accessToken = value {
                     result(["success": true, "yahooAccessToken": accessToken])
+                } else {
+                    result(["success": false])
+                }
+            }
+        }
+        if (call.method == "appleLogIn") {
+            AuthSDKHelper.share.handleAuthorizationAppleID()
+            AuthSDKHelper.share.appleAuthHandler = { value in
+                if let accessToken = value {
+                    result(["success": true, "appleAccessToken": accessToken])
                 } else {
                     result(["success": false])
                 }

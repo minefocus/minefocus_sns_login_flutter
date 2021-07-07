@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:minefocus_sns_login_flutter/minefocus_sns_login_flutter.dart';
 
@@ -63,6 +65,20 @@ class _MyAppState extends State<MyApp> {
                   });
                 },
               ),
+              SizedBox(height: 30),
+              Platform.isIOS ?
+              RaisedButton(
+                child: Text("apple login"),
+                onPressed: () async {
+                  MFSnsLogin.login(SnsLoginType.apple).then((value) {
+                    if (value.isSuccess) {
+                      print('apple token is ------${value.accessToken}');
+                    } else {
+                      print('apple login error');
+                    }
+                  });
+                },
+              ) : null
             ],
           ),
         ),
