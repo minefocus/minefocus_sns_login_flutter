@@ -46,7 +46,7 @@ class MFSnsLogin {
           FacebookPermission.publicProfile,
           FacebookPermission.email,
         ]);
-        if (result?.status != null) {
+    if (result?.status == FacebookLoginStatus.success) {
           return SnsLoginResult(true, accessToken: result?.accessToken?.token);
         } else {
           return SnsLoginResult(false);
