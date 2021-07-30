@@ -1,14 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/services.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 
 enum SnsLoginType { google, facebook, yahoo, apple }
 
 class SnsLoginResult {
   bool isSuccess;
-  String accessToken;
+  String? accessToken;
 
   SnsLoginResult(this.isSuccess, {this.accessToken});
 }
@@ -34,22 +33,25 @@ class MFSnsLogin {
             ],
           );
           final result = await googleSignIn.signIn();
-          final accessToken = await result.authentication;
-          return SnsLoginResult(true, accessToken: accessToken.accessToken);
+          final accessToken = await result?.authentication;
+          return SnsLoginResult(true, accessToken: accessToken?.accessToken);
         } catch (e) {
           return SnsLoginResult(false);
         }
-        break;
+        //break;
       case SnsLoginType.facebook:
         // facebook连携
-        final facebookLogin = FacebookLogin();
-        final result = await facebookLogin.logIn(['email']);
-        if (result.status == FacebookLoginStatus.loggedIn) {
-          return SnsLoginResult(true, accessToken: result.accessToken.token);
+        final plugin = FacebookLogin(debug: true);
+        final FacebookLoginResult? result = await  plugin.logIn(permissions: [
+          FacebookPermission.publicProfile,
+          FacebookPermission.email,
+        ]);
+        if (result?.status != null) {
+          return SnsLoginResult(true, accessToken: result?.accessToken?.token);
         } else {
           return SnsLoginResult(false);
         }
-        break;
+       // break;
       case SnsLoginType.yahoo:
         // yahoo连携
         final Map<dynamic, dynamic> result = await _channel.invokeMethod('yahooLogIn');
@@ -58,7 +60,7 @@ class MFSnsLogin {
         } else {
           return SnsLoginResult(false);
         }
-        break;
+      //  break;
       case SnsLoginType.apple:
         //apple连携(ios)
         final Map<dynamic, dynamic> result = await _channel.invokeMethod('appleLogIn');
@@ -67,7 +69,7 @@ class MFSnsLogin {
         } else {
           return SnsLoginResult(false);
         }
-        break;
+       // break;
     }
   }
 }

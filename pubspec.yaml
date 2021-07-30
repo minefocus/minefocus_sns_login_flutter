@@ -5,14 +5,13 @@ author: cong wang <cong.wang3@pactera.com>
 homepage: https://github.com/minefocus/minefocus_sns_login_flutter
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   google_sign_in: 5.0.4
-  flutter_facebook_login: ^3.0.0
-
+  flutter_login_facebook: ^1.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
