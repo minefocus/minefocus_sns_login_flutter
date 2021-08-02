@@ -239,6 +239,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/MFYConnect/MFYConnect.framework",
+				"${BUILT_PRODUCTS_DIR}/flutter_login_facebook/flutter_login_facebook.framework",
 				"${BUILT_PRODUCTS_DIR}/minefocus_sns_login_flutter/minefocus_sns_login_flutter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -249,6 +250,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MFYConnect.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_login_facebook.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/minefocus_sns_login_flutter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
