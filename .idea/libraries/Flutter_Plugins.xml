@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
     <CLASSES>
-      <root url="file://$USER_HOME$/flutter2.0/flutter/.pub-cache/hosted/pub.flutter-io.cn/google_sign_in_web-0.10.0" />
       <root url="file://$PROJECT_DIR$" />
-      <root url="file://$USER_HOME$/flutter2.0/flutter/.pub-cache/hosted/pub.flutter-io.cn/google_sign_in-5.0.4" />
-      <root url="file://$USER_HOME$/flutter2.0/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_login_facebook-1.0.1" />
+      <root url="file:///Applications/flutter2.0/.pub-cache/hosted/pub.flutter-io.cn/google_sign_in_web-0.10.0" />
+      <root url="file:///Applications/flutter2.0/.pub-cache/hosted/pub.flutter-io.cn/google_sign_in-5.0.5" />
+      <root url="file:///Applications/flutter2.0/.pub-cache/hosted/pub.flutter-io.cn/flutter_login_facebook-1.0.1" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

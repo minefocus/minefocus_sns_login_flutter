@@ -48,8 +48,12 @@ class LoginUtils(private val putConnectData: ((ConnectDataServiceType, String?) 
     fun yahooInit(act: Context) {
         mActivity = act
         val data = act.packageManager.getApplicationInfo(act.packageName, PackageManager.GET_META_DATA)
-        clientId = data.metaData.get(YAHOO_CLIENT_ID) as String
-        customUriScheme = data.metaData.get(YAHOO_SCHEME) as String
+        data.metaData.get(YAHOO_CLIENT_ID)?.let{
+            clientId = it as String
+        }
+         data.metaData.get(YAHOO_SCHEME)?.let{
+             customUriScheme = it as String
+         }
         // YConnectインスタンス取得
         yconnect = YConnectHybrid.getInstance()
     }
