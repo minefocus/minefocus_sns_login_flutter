@@ -38,20 +38,22 @@ class MFSnsLogin {
         } catch (e) {
           return SnsLoginResult(false);
         }
-        //break;
+      //break;
       case SnsLoginType.facebook:
         // facebook连携
         final plugin = FacebookLogin(debug: true);
-        final FacebookLoginResult? result = await  plugin.logIn(permissions: [
+        final FacebookLoginResult? result = await plugin.logIn(permissions: [
           FacebookPermission.publicProfile,
           FacebookPermission.email,
         ]);
-    if (result?.status == FacebookLoginStatus.success) {
+        if (result?.status == FacebookLoginStatus.success) {
           return SnsLoginResult(true, accessToken: result?.accessToken?.token);
-        } else {
+        } else if (result?.status == FacebookLoginStatus.cancel)
           return SnsLoginResult(false);
+        else {
+          return SnsLoginResult(false, accessToken: '');
         }
-       // break;
+      // break;
       case SnsLoginType.yahoo:
         // yahoo连携
         final Map<dynamic, dynamic> result = await _channel.invokeMethod('yahooLogIn');
@@ -69,7 +71,7 @@ class MFSnsLogin {
         } else {
           return SnsLoginResult(false);
         }
-       // break;
+      // break;
     }
   }
 }
