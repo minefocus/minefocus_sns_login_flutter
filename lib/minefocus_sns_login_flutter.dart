@@ -18,16 +18,15 @@ class SnsLogoutResult {
   SnsLogoutResult(this.isSuccess);
 }
 
-GoogleSignIn googleSignIn = GoogleSignIn(
-  scopes: [
-    'email',
-    'https://www.googleapis.com/auth/contacts.readonly',
-  ],
-);
-
-final plugin = FacebookLogin(debug: true);
-
 class MFSnsLogin {
+  static GoogleSignIn googleSignIn = GoogleSignIn(
+    scopes: [
+      'email',
+      'https://www.googleapis.com/auth/contacts.readonly',
+    ],
+  );
+
+  static final facebookLogin = FacebookLogin(debug: true);
 
   static const MethodChannel _channel = const MethodChannel('minefocus_sns_login_flutter');
 
@@ -50,7 +49,7 @@ class MFSnsLogin {
         }
       case SnsLoginType.facebook:
         // facebook连携
-        final FacebookLoginResult? result = await plugin.logIn(permissions: [
+        final FacebookLoginResult? result = await facebookLogin.logIn(permissions: [
           FacebookPermission.publicProfile,
           FacebookPermission.email,
         ]);
@@ -80,13 +79,13 @@ class MFSnsLogin {
     }
   }
 
-  void logout(SnsLoginType type) {
+  static void logout(SnsLoginType type) {
     switch (type) {
       case SnsLoginType.google:
-        _handleGoogleLogout();
+        googleSignIn.signOut();
         break;
       case SnsLoginType.facebook:
-        _handleFacebookLogout();
+        facebookLogin.logOut();
         break;
       case SnsLoginType.yahoo:
         break;
@@ -94,8 +93,4 @@ class MFSnsLogin {
         break;
     }
   }
-
-  Future<void> _handleGoogleLogout() => googleSignIn.signOut();
-
-  Future<void> _handleFacebookLogout() => plugin.logOut();
 }
