@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text("google login"),
                 onPressed: () async {
                   MFSnsLogin.login(SnsLoginType.google).then((value) {
@@ -39,8 +39,8 @@ class _MyAppState extends State<MyApp> {
                   });
                 },
               ),
-              SizedBox(height: 30),
-              RaisedButton(
+               SizedBox(height: 30),
+              ElevatedButton(
                 child: Text("facebook login"),
                 onPressed: () async {
                   MFSnsLogin.login(SnsLoginType.facebook).then((value) {
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
                 },
               ),
               SizedBox(height: 30),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("yahoo login"),
                 onPressed: () async {
                   MFSnsLogin.login(SnsLoginType.yahoo).then((value) {
@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
               ),
               SizedBox(height: 30),
               Platform.isIOS ?
-              RaisedButton(
+              ElevatedButton(
                 child: Text("apple login"),
                 onPressed: () async {
                   MFSnsLogin.login(SnsLoginType.apple).then((value) {
@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
                     }
                   });
                 },
-              ) : null
+              ) : SizedBox()
             ],
           ),
         ),

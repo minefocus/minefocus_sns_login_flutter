@@ -12,7 +12,23 @@ class SnsLoginResult {
   SnsLoginResult(this.isSuccess, {this.accessToken});
 }
 
+class SnsLogoutResult {
+  bool isSuccess;
+
+  SnsLogoutResult(this.isSuccess);
+}
+
+GoogleSignIn googleSignIn = GoogleSignIn(
+  scopes: [
+    'email',
+    'https://www.googleapis.com/auth/contacts.readonly',
+  ],
+);
+
+final plugin = FacebookLogin(debug: true);
+
 class MFSnsLogin {
+
   static const MethodChannel _channel = const MethodChannel('minefocus_sns_login_flutter');
 
   static Future<String> get platformVersion async {
@@ -26,22 +42,14 @@ class MFSnsLogin {
       case SnsLoginType.google:
         // google连携
         try {
-          GoogleSignIn googleSignIn = GoogleSignIn(
-            scopes: [
-              'email',
-              'https://www.googleapis.com/auth/contacts.readonly',
-            ],
-          );
           final result = await googleSignIn.signIn();
           final accessToken = await result?.authentication;
           return SnsLoginResult(true, accessToken: accessToken?.accessToken);
         } catch (e) {
           return SnsLoginResult(false);
         }
-      //break;
       case SnsLoginType.facebook:
         // facebook连携
-        final plugin = FacebookLogin(debug: true);
         final FacebookLoginResult? result = await plugin.logIn(permissions: [
           FacebookPermission.publicProfile,
           FacebookPermission.email,
@@ -53,7 +61,6 @@ class MFSnsLogin {
         else {
           return SnsLoginResult(false, accessToken: '');
         }
-      // break;
       case SnsLoginType.yahoo:
         // yahoo连携
         final Map<dynamic, dynamic> result = await _channel.invokeMethod('yahooLogIn');
@@ -62,7 +69,6 @@ class MFSnsLogin {
         } else {
           return SnsLoginResult(false);
         }
-      //  break;
       case SnsLoginType.apple:
         //apple连携(ios)
         final Map<dynamic, dynamic> result = await _channel.invokeMethod('appleLogIn');
@@ -71,7 +77,25 @@ class MFSnsLogin {
         } else {
           return SnsLoginResult(false);
         }
-      // break;
     }
   }
+
+  void logout(SnsLoginType type) {
+    switch (type) {
+      case SnsLoginType.google:
+        _handleGoogleLogout();
+        break;
+      case SnsLoginType.facebook:
+        _handleFacebookLogout();
+        break;
+      case SnsLoginType.yahoo:
+        break;
+      case SnsLoginType.apple:
+        break;
+    }
+  }
+
+  Future<void> _handleGoogleLogout() => googleSignIn.signOut();
+
+  Future<void> _handleFacebookLogout() => plugin.logOut();
 }
