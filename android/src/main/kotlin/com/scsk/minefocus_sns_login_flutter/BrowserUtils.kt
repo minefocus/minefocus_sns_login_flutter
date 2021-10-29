@@ -82,7 +82,7 @@ object BrowserUtils {
         val intent: Intent? = if (strUri == null) {
             Intent(Intent.ACTION_VIEW, Uri.parse(strUrl))
         } else if (strUrl == null) {
-            Intent(Intent.ACTION_VIEW, strUri)
+            Intent(Intent.ACTION_VIEW, strUri).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         } else {
             null
         }
