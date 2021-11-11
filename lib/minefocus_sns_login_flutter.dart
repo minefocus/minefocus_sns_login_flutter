@@ -43,7 +43,7 @@ class MFSnsLogin {
         try {
           final result = await googleSignIn.signIn();
           final accessToken = await result?.authentication;
-          return SnsLoginResult(true, accessToken: accessToken?.accessToken);
+          return SnsLoginResult(true, accessToken: accessToken?.idToken);
         } catch (e) {
           return SnsLoginResult(false);
         }
