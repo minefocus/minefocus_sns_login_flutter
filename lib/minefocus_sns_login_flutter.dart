@@ -95,6 +95,6 @@ class MFSnsLogin {
   Future<void> _handleGoogleLogout() => googleSignIn.signOut();
 
   Future<void> _handleFacebookLogout() async {
-    await FacebookAuth.instance.logOut();
+     FacebookAuth.instance.logOut();
   }
 }
