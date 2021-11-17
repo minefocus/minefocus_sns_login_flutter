@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 
 enum SnsLoginType { google, facebook, yahoo, apple }
 
@@ -25,10 +25,7 @@ GoogleSignIn googleSignIn = GoogleSignIn(
   ],
 );
 
-final plugin = FacebookLogin(debug: true);
-
 class MFSnsLogin {
-
   static const MethodChannel _channel = const MethodChannel('minefocus_sns_login_flutter');
 
   static Future<String> get platformVersion async {
@@ -49,18 +46,18 @@ class MFSnsLogin {
           return SnsLoginResult(false);
         }
       case SnsLoginType.facebook:
-        // facebook连携
-        final FacebookLoginResult? result = await plugin.logIn(permissions: [
-          FacebookPermission.publicProfile,
-          FacebookPermission.email,
-        ]);
-        if (result?.status == FacebookLoginStatus.success) {
-          return SnsLoginResult(true, accessToken: result?.accessToken?.token);
-        } else if (result?.status == FacebookLoginStatus.cancel)
+        final LoginResult result = await FacebookAuth.instance.login();
+        if (result.status == LoginStatus.success) {
+          AccessToken? accessToken =  = result.accessToken;
+          if (accessToken != null) {
+            return SnsLoginResult(true, accessToken: accessToken.token);
+          } else {
+            return SnsLoginResult(true,accessToken:'');
+          }
+        } else {
           return SnsLoginResult(false);
-        else {
-          return SnsLoginResult(false, accessToken: '');
         }
+
       case SnsLoginType.yahoo:
         // yahoo连携
         final Map<dynamic, dynamic> result = await _channel.invokeMethod('yahooLogIn');
@@ -97,5 +94,7 @@ class MFSnsLogin {
 
   Future<void> _handleGoogleLogout() => googleSignIn.signOut();
 
-  Future<void> _handleFacebookLogout() => plugin.logOut();
+  Future<void> _handleFacebookLogout() async {
+    await FacebookAuth.instance.logOut();
+  }
 }

@@ -11,7 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   google_sign_in: 5.0.5
-  flutter_login_facebook: ^1.1.0
+  flutter_facebook_auth: ^3.5.5
+
 
 dev_dependencies:
   flutter_test:
