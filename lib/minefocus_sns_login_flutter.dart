@@ -43,7 +43,8 @@ class MFSnsLogin {
           final result = await googleSignIn.signIn();
           final accessToken = await result?.authentication;
           return SnsLoginResult(true, accessToken: accessToken?.idToken);
-        } catch (e) {
+        }catch (e) {
+          print('error catch: $e');
           return SnsLoginResult(false);
         }
       case SnsLoginType.facebook:
@@ -55,8 +56,10 @@ class MFSnsLogin {
         if (result?.status == FacebookLoginStatus.success) {
           return SnsLoginResult(true, accessToken: result?.accessToken?.token);
         } else if (result?.status == FacebookLoginStatus.cancel)
+          // 取消
           return SnsLoginResult(false);
         else {
+          // 错误
           return SnsLoginResult(false, accessToken: '');
         }
       case SnsLoginType.yahoo:
@@ -73,7 +76,13 @@ class MFSnsLogin {
         if (result["success"] == true) {
           return SnsLoginResult(true, accessToken: result["appleAccessToken"]);
         } else {
-          return SnsLoginResult(false);
+          if (result.containsKey("appleAccessToken") && result["appleAccessToken"] == '') {
+            // 错误
+            return SnsLoginResult(false, accessToken: '');
+          } else {
+            // 取消
+            return SnsLoginResult(false);
+          }
         }
     }
   }

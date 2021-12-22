@@ -32,14 +32,18 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () async {
                   MFSnsLogin.login(SnsLoginType.google).then((value) {
                     if (value.isSuccess) {
-                      print('google token is ------${value.accessToken}');
+                      if(value.accessToken == null){
+                        print('google login cancel');
+                      }else{
+                        print('google token is ------${value.accessToken}');
+                      }
                     } else {
                       print('google login error');
                     }
                   });
                 },
               ),
-               SizedBox(height: 30),
+              SizedBox(height: 30),
               ElevatedButton(
                 child: Text("facebook login"),
                 onPressed: () async {
@@ -47,7 +51,11 @@ class _MyAppState extends State<MyApp> {
                     if (value.isSuccess) {
                       print('facebook token is ------${value.accessToken}');
                     } else {
-                      print('facebook login error');
+                      if(value.accessToken == ""){
+                        print('facebook login error');
+                      }else{
+                        print('facebook login cancel');
+                      }
                     }
                   });
                 },
@@ -66,19 +74,24 @@ class _MyAppState extends State<MyApp> {
                 },
               ),
               SizedBox(height: 30),
-              Platform.isIOS ?
-              ElevatedButton(
-                child: Text("apple login"),
-                onPressed: () async {
-                  MFSnsLogin.login(SnsLoginType.apple).then((value) {
-                    if (value.isSuccess) {
-                      print('apple token is ------${value.accessToken}');
-                    } else {
-                      print('apple login error');
-                    }
-                  });
-                },
-              ) : SizedBox()
+              Platform.isIOS
+                  ? ElevatedButton(
+                      child: Text("apple login"),
+                      onPressed: () async {
+                        MFSnsLogin.login(SnsLoginType.apple).then((value) {
+                          if (value.isSuccess) {
+                            print('apple token is ------${value.accessToken}');
+                          } else {
+                            if (value.accessToken == "") {
+                              print('apple login error');
+                            } else {
+                              print('apple login cancel');
+                            }
+                          }
+                        });
+                      },
+                    )
+                  : SizedBox()
             ],
           ),
         ),
@@ -86,5 +99,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-

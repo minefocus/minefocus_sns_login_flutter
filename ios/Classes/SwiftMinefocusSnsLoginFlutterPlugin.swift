@@ -62,7 +62,7 @@ class AuthSDKHelper: NSObject, ASAuthorizationControllerDelegate, ASAuthorizatio
             if let token = appleIDCredential.identityToken, let tokenString = String(bytes: token, encoding: .utf8){
                 self.appleAuthHandler?(tokenString)
             } else {
-                self.appleAuthHandler?(nil)
+                self.appleAuthHandler?("")
             }
         default:
             break
@@ -71,7 +71,27 @@ class AuthSDKHelper: NSObject, ASAuthorizationControllerDelegate, ASAuthorizatio
 
     @available(iOS 13.0, *)
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        self.appleAuthHandler?(nil)
+         let authorArror: ASAuthorizationError = ASAuthorizationError(_nsError: error as NSError)
+         switch authorArror{
+              case ASAuthorizationError.canceled:
+                   self.appleAuthHandler?(nil)
+                   debugPrint("取消")
+              case ASAuthorizationError.failed:
+                   self.appleAuthHandler?("")
+                   debugPrint("授权请求失败")
+              case ASAuthorizationError.invalidResponse:
+                   self.appleAuthHandler?("")
+                   debugPrint("授权请求响应无效")
+              case ASAuthorizationError.notHandled:
+                    self.appleAuthHandler?("")
+                    debugPrint("未能处理授权请求")
+              case ASAuthorizationError.unknown:
+                    self.appleAuthHandler?("")
+                    debugPrint("授权请求失败未知原因")
+              default:
+                  self.appleAuthHandler?("")
+                  debugPrint("error")
+               }
     }
 }
 
@@ -98,7 +118,11 @@ public class SwiftMinefocusSnsLoginFlutterPlugin: NSObject, FlutterPlugin {
             AuthSDKHelper.share.handleAuthorizationAppleID()
             AuthSDKHelper.share.appleAuthHandler = { value in
                 if let accessToken = value {
-                    result(["success": true, "appleAccessToken": accessToken])
+                    if accessToken == "" {
+                        result(["success": false, "appleAccessToken": accessToken])
+                    }else{
+                        result(["success": true, "appleAccessToken": accessToken])
+                    }
                 } else {
                     result(["success": false])
                 }
