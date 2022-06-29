@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 
-enum SnsLoginType { google, facebook, yahoo, apple }
+enum SnsLoginType { google, facebook, yahoo, apple, appleDraw }
 
 class SnsLoginResult {
   bool isSuccess;
@@ -83,6 +83,14 @@ class MFSnsLogin {
             // 取消
             return SnsLoginResult(false);
           }
+        }
+      case SnsLoginType.appleDraw:
+      //apple连携退会(ios)
+        final Map<dynamic, dynamic> result = await _channel.invokeMethod('appleDraw');
+        if (result["success"] == true) {
+          return SnsLoginResult(true, accessToken: result["authorizationCode"]);
+        } else {
+          return SnsLoginResult(false, accessToken: '');
         }
     }
   }

@@ -3,6 +3,11 @@ import UIKit
 import MFYConnect
 import AuthenticationServices
 
+enum appleAuthType {
+    case login
+    case draw
+}
+
 class AuthSDKHelper: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
 
     // yahooAuth
@@ -11,6 +16,7 @@ class AuthSDKHelper: NSObject, ASAuthorizationControllerDelegate, ASAuthorizatio
     var appleAuthHandler:((_ accessToken: String?) -> Void)?
 
     private static let s_share = AuthSDKHelper()
+    private var appleAuth = appleAuthType.login
     class var share: AuthSDKHelper {
         return s_share
     }
@@ -38,7 +44,8 @@ class AuthSDKHelper: NSObject, ASAuthorizationControllerDelegate, ASAuthorizatio
         }
     }
 
-    func handleAuthorizationAppleID() {
+    func handleAuthorizationAppleID(auth: appleAuthType = appleAuthType.login) {
+        appleAuth = auth
         if #available(iOS 13.0, *) {
             let appleIDProvider = ASAuthorizationAppleIDProvider()
             let request = appleIDProvider.createRequest()
@@ -59,10 +66,18 @@ class AuthSDKHelper: NSObject, ASAuthorizationControllerDelegate, ASAuthorizatio
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            if let token = appleIDCredential.identityToken, let tokenString = String(bytes: token, encoding: .utf8){
-                self.appleAuthHandler?(tokenString)
+            if appleAuth == appleAuthType.draw {
+                if let token = appleIDCredential.authorizationCode, let tokenString = String(bytes: token, encoding: .utf8){
+                    self.appleAuthHandler?(tokenString)
+                } else {
+                    self.appleAuthHandler?("")
+                }
             } else {
-                self.appleAuthHandler?("")
+                if let token = appleIDCredential.identityToken, let tokenString = String(bytes: token, encoding: .utf8){
+                    self.appleAuthHandler?(tokenString)
+                } else {
+                    self.appleAuthHandler?("")
+                }
             }
         default:
             break
@@ -115,13 +130,27 @@ public class SwiftMinefocusSnsLoginFlutterPlugin: NSObject, FlutterPlugin {
             }
         }
         if (call.method == "appleLogIn") {
-            AuthSDKHelper.share.handleAuthorizationAppleID()
+            AuthSDKHelper.share.handleAuthorizationAppleID(auth: .login)
             AuthSDKHelper.share.appleAuthHandler = { value in
                 if let accessToken = value {
                     if accessToken == "" {
                         result(["success": false, "appleAccessToken": accessToken])
                     }else{
                         result(["success": true, "appleAccessToken": accessToken])
+                    }
+                } else {
+                    result(["success": false])
+                }
+            }
+        }
+        if (call.method == "appleDraw") {
+            AuthSDKHelper.share.handleAuthorizationAppleID(auth: .draw)
+            AuthSDKHelper.share.appleAuthHandler = { value in
+                if let accessToken = value {
+                    if accessToken == "" {
+                        result(["success": false, "authorizationCode": accessToken])
+                    }else{
+                        result(["success": true, "authorizationCode": accessToken])
                     }
                 } else {
                     result(["success": false])
